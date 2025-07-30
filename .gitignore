@@ -1,16 +1,76 @@
+# C++/Embedded Build directories
+build/
+debug/
+release/
+dist/
+out/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Object files & Libraries
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+*.lib
+*.a
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# IDE files
+.vscode/
+.vs/
+*.vcxproj*
+*.sln
+*.suo
+*.user
+.idea/
+*.pro.user*
+
+# Embedded/PX4 specific
+*.axf
+*.srec
+*.mot
+.px4_cache/
+platforms/*/build/
+*.px4
+
+# Model files (often large)
+*.onnx
+*.pb
+*.tflite
+*.lnn
+models/large/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
 
-# C extensions
-*.so
-
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
