@@ -1,0 +1,67 @@
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Build directories
+build/
+debug/
+release/
+dist/
+out/
+
+# IDE files
+.vscode/
+.vs/
+.idea/
+*.pro.user*
+
+# Python
+__pycache__/
+*.py[codz]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Documentation build
+docs/_build/
+site/
+
+# Large model files
+*.onnx
+*.pb
+*.tflite
+models/large/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose*.yml
+
+# CI/CD
+.github/
+
+# Development tools
+.pre-commit-config.yaml
+.editorconfig
+
+# Test outputs
+test-reports/
+coverage.xml
+*.cover

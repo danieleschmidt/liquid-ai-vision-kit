@@ -1,0 +1,103 @@
+# Clang-format configuration for Liquid AI Vision Kit
+# Based on Google C++ Style Guide with embedded-specific modifications
+
+BasedOnStyle: Google
+
+# Basic formatting
+Language: Cpp
+Standard: c++17
+TabWidth: 4
+IndentWidth: 4
+UseTab: Never
+ColumnLimit: 100
+
+# Indentation
+IndentCaseLabels: false
+IndentPPDirectives: BeforeHash
+IndentWrappedFunctionNames: false
+AccessModifierOffset: -2
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
+
+# Alignment
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlines: Left
+AlignOperands: true
+AlignTrailingComments: true
+
+# Breaking
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: None
+AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+
+# Braces
+BreakBeforeBraces: Attach
+BreakBeforeBinaryOperators: None
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: BeforeColon
+
+# Spacing
+SpaceAfterCStyleCast: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 2
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# Pointers and references
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# Comments
+ReflowComments: true
+CommentPragmas: '^ IWYU pragma:'
+
+# Includes
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Main header for .cpp files
+  - Regex: '^".*\.h(pp)?\"$'
+    Priority: 1
+  # System headers
+  - Regex: '^<[^/]+>'
+    Priority: 3
+  # Third-party headers
+  - Regex: '^<.*>'
+    Priority: 2
+  # Project headers
+  - Regex: '.*'
+    Priority: 1
+
+# Penalties (lower values preferred)
+PenaltyBreakAssignment: 10
+PenaltyBreakBeforeFirstCallParameter: 30
+PenaltyBreakComment: 300
+PenaltyBreakFirstLessLess: 120
+PenaltyBreakString: 1000
+PenaltyExcessCharacter: 1000000
+PenaltyReturnTypeOnItsOwnLine: 200
+
+# Embedded-specific settings
+# Keep short functions inline for performance
+AllowShortFunctionsOnASingleLine: Inline
+# Compact initialization lists for memory efficiency
+PackConstructorInitializers: CurrentLine
+# Minimize line breaks in templates
+AlwaysBreakTemplateDeclarations: Yes
