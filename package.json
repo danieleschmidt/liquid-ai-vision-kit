@@ -1,0 +1,32 @@
+{
+  "name": "liquid-ai-vision-kit",
+  "version": "1.0.0",
+  "description": "Liquid Neural Networks for embedded vision systems",
+  "keywords": [
+    "embedded",
+    "neural-networks",
+    "computer-vision",
+    "drone",
+    "px4",
+    "liquid-networks",
+    "edge-ai"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/liquid-ai-vision-kit.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "docs:serve": "http-server docs/_build/html -p 8080",
+    "lint:markdown": "markdownlint *.md docs/**/*.md",
+    "check:links": "markdown-link-check README.md"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "markdownlint-cli": "^0.37.0",
+    "markdown-link-check": "^3.11.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,48 @@
+# Python development dependencies for Liquid AI Vision Kit
+# Core development tools
+numpy>=1.21.0
+opencv-python>=4.5.0
+matplotlib>=3.5.0
+scipy>=1.7.0
+
+# Model conversion and training
+onnx>=1.12.0
+onnxruntime>=1.12.0
+torch>=1.12.0
+torchvision>=0.13.0
+
+# Code quality and testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-benchmark>=4.0.0
+black>=22.0.0
+isort>=5.10.0
+flake8>=5.0.0
+mypy>=0.991
+
+# Documentation
+sphinx>=5.0.0
+sphinx-rtd-theme>=1.0.0
+breathe>=4.34.0
+
+# Pre-commit hooks
+pre-commit>=2.20.0
+
+# Security scanning
+safety>=2.0.0
+bandit>=1.7.0
+
+# Visualization and analysis
+seaborn>=0.11.0
+plotly>=5.0.0
+tensorboard>=2.9.0
+
+# Embedded development tools
+pyserial>=3.5
+pymavlink>=2.4.0
+
+# Optional dependencies for advanced features
+# Uncomment as needed:
+# tensorflow>=2.9.0  # For TensorFlow model conversion
+# tflite-runtime>=2.9.0  # For TensorFlow Lite support
+# pybind11>=2.10.0  # For Python bindings development
