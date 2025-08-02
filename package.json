@@ -17,14 +17,31 @@
   },
   "license": "MIT",
   "scripts": {
-    "docs:serve": "http-server docs/_build/html -p 8080",
+    "test": "ctest --test-dir build --verbose",
+    "lint": "npm run lint:markdown && npm run lint:cpp",
     "lint:markdown": "markdownlint *.md docs/**/*.md",
-    "check:links": "markdown-link-check README.md"
+    "lint:cpp": "cpplint --recursive src/ include/ tests/",
+    "format": "npm run format:cpp && npm run format:markdown",
+    "format:cpp": "clang-format -i src/**/*.cpp src/**/*.hpp include/**/*.hpp tests/**/*.cpp tests/**/*.hpp",
+    "format:markdown": "prettier --write '**/*.md'",
+    "build": "mkdir -p build && cd build && cmake .. && make -j$(nproc)",
+    "build:debug": "mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make -j$(nproc)",
+    "build:release": "mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=Release .. && make -j$(nproc)",
+    "build:embedded": "mkdir -p build && cd build && cmake -DTARGET_PLATFORM=ARM_CORTEX_M7 .. && make -j$(nproc)",
+    "clean": "rm -rf build/",
+    "dev": "npm run build:debug && npm run test",
+    "docs:serve": "http-server docs/_build/html -p 8080",
+    "docs:build": "doxygen Doxyfile",
+    "check:links": "markdown-link-check README.md",
+    "security-check": "npm audit && cppcheck --enable=all --inconclusive --std=c++17 src/ include/",
+    "pre-commit": "npm run lint && npm run test && npm run security-check"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
     "markdownlint-cli": "^0.37.0",
-    "markdown-link-check": "^3.11.2"
+    "markdown-link-check": "^3.11.2",
+    "prettier": "^3.0.0",
+    "cpplint": "^1.6.1"
   },
   "engines": {
     "node": ">=16.0.0"

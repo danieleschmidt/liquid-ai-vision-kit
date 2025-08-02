@@ -1,29 +1,70 @@
 # Multi-stage Dockerfile for Liquid AI Vision Kit
 # Optimized for embedded AI development and deployment
 
-# Build stage for ARM cross-compilation
-FROM ubuntu:22.04 AS arm-builder
+ARG BUILDPLATFORM=linux/amd64
+ARG TARGETPLATFORM=linux/amd64
+
+# Base builder stage with common tools
+FROM --platform=$BUILDPLATFORM ubuntu:22.04 AS base-builder
+
+# Prevent interactive prompts during installation
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+# Install essential build tools
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    ninja-build \
+    git \
+    wget \
+    curl \
+    ca-certificates \
+    pkg-config \
+    libtool \
+    autoconf \
+    automake \
+    python3 \
+    python3-pip \
+    python3-dev \
+    ccache \
+    && rm -rf /var/lib/apt/lists/*
+
+# Setup ccache for faster builds
+ENV CCACHE_DIR=/tmp/ccache
+ENV CMAKE_C_COMPILER_LAUNCHER=ccache
+ENV CMAKE_CXX_COMPILER_LAUNCHER=ccache
+RUN ccache --max-size=2G
+
+# ARM cross-compilation builder stage
+FROM base-builder AS arm-builder
 
 # Install ARM toolchain and dependencies
 RUN apt-get update && apt-get install -y \
     gcc-arm-none-eabi \
-    cmake \
-    make \
-    git \
-    python3 \
-    python3-pip \
-    wget \
-    curl \
+    binutils-arm-none-eabi \
+    libnewlib-arm-none-eabi \
+    gdb-multiarch \
+    openocd \
     && rm -rf /var/lib/apt/lists/*
 
 # Set up build environment
 WORKDIR /workspace
 COPY . .
 
+# Configure ARM build
+ENV CMAKE_TOOLCHAIN_FILE=/workspace/cmake/arm-none-eabi.cmake
+ENV CMAKE_BUILD_TYPE=Release
+
 # Build for ARM Cortex-M7
 RUN mkdir -p build-arm && cd build-arm && \
-    cmake .. -DTARGET_PLATFORM=ARM_CORTEX_M7 -DCMAKE_BUILD_TYPE=Release && \
-    make -j$(nproc)
+    cmake .. \
+        -G Ninja \
+        -DTARGET_PLATFORM=ARM_CORTEX_M7 \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DENABLE_TESTS=OFF \
+        -DENABLE_PYTHON_BINDINGS=OFF && \
+    ninja -j$(nproc)
 
 # Development stage with full toolchain
 FROM ubuntu:22.04 AS development
