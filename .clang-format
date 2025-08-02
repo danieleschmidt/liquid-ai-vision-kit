@@ -1,103 +1,128 @@
-# Clang-format configuration for Liquid AI Vision Kit
-# Based on Google C++ Style Guide with embedded-specific modifications
+# Clang-Format Style Configuration for Liquid AI Vision Kit
+# Based on Google style with embedded-specific modifications
 
 BasedOnStyle: Google
 
-# Basic formatting
+# Language-specific settings
 Language: Cpp
 Standard: c++17
-TabWidth: 4
-IndentWidth: 4
-UseTab: Never
-ColumnLimit: 100
 
 # Indentation
-IndentCaseLabels: false
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ContinuationIndentWidth: 4
+IndentCaseLabels: true
+IndentGotoLabels: true
 IndentPPDirectives: BeforeHash
 IndentWrappedFunctionNames: false
-AccessModifierOffset: -2
-ConstructorInitializerIndentWidth: 4
-ContinuationIndentWidth: 4
+
+# Line length and breaking
+ColumnLimit: 100
+BreakBeforeBraces: Attach
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+BreakBeforeBinaryOperators: None
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: true
+
+# Function formatting
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: All
+
+# Spacing
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 2
+SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
 
 # Alignment
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
+AlignConsecutiveMacros: false
 AlignEscapedNewlines: Left
 AlignOperands: true
 AlignTrailingComments: true
 
-# Breaking
-AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: Empty
-AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: Inline
-AllowShortIfStatementsOnASingleLine: WithoutElse
-AllowShortLoopsOnASingleLine: false
-AlwaysBreakAfterReturnType: None
-AlwaysBreakBeforeMultilineStrings: false
-AlwaysBreakTemplateDeclarations: Yes
-BinPackArguments: false
-BinPackParameters: false
+# Sorting and grouping
+SortIncludes: true
+SortUsingDeclarations: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Main header (for .cpp files)
+  - Regex: '^".*\.hpp"$'
+    Priority: 1
+  # Project headers
+  - Regex: '^"liquid_vision/.*"$'
+    Priority: 2
+  # Third-party libraries
+  - Regex: '^<(eigen3|opencv|px4|ros)/.*>$'
+    Priority: 3
+  # System headers
+  - Regex: '^<.*>$'
+    Priority: 4
 
-# Braces
-BreakBeforeBraces: Attach
-BreakBeforeBinaryOperators: None
-BreakBeforeTernaryOperators: true
-BreakConstructorInitializers: BeforeColon
-BreakInheritanceList: BeforeColon
-
-# Spacing
-SpaceAfterCStyleCast: false
-SpaceAfterTemplateKeyword: true
-SpaceBeforeAssignmentOperators: true
-SpaceBeforeParens: ControlStatements
-SpaceInEmptyParentheses: false
-SpacesBeforeTrailingComments: 2
-SpacesInAngles: false
-SpacesInCStyleCastParentheses: false
-SpacesInContainerLiterals: false
-SpacesInParentheses: false
-SpacesInSquareBrackets: false
-
-# Pointers and references
-DerivePointerAlignment: false
+# Pointer and reference alignment
 PointerAlignment: Left
+ReferenceAlignment: Left
+DerivePointerAlignment: false
 
 # Comments
 ReflowComments: true
 CommentPragmas: '^ IWYU pragma:'
 
-# Includes
-SortIncludes: CaseSensitive
-IncludeBlocks: Regroup
-IncludeCategories:
-  # Main header for .cpp files
-  - Regex: '^".*\.h(pp)?\"$'
-    Priority: 1
-  # System headers
-  - Regex: '^<[^/]+>'
-    Priority: 3
-  # Third-party headers
-  - Regex: '^<.*>'
-    Priority: 2
-  # Project headers
-  - Regex: '.*'
-    Priority: 1
+# Embedded-specific settings
+BinPackArguments: true
+BinPackParameters: true
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
 
-# Penalties (lower values preferred)
-PenaltyBreakAssignment: 10
-PenaltyBreakBeforeFirstCallParameter: 30
+# Penalty settings for better embedded code layout
+PenaltyBreakAssignment: 2
+PenaltyBreakBeforeFirstCallParameter: 19
 PenaltyBreakComment: 300
 PenaltyBreakFirstLessLess: 120
 PenaltyBreakString: 1000
+PenaltyBreakTemplateDeclaration: 10
 PenaltyExcessCharacter: 1000000
-PenaltyReturnTypeOnItsOwnLine: 200
+PenaltyReturnTypeOnItsOwnLine: 1000
 
-# Embedded-specific settings
-# Keep short functions inline for performance
-AllowShortFunctionsOnASingleLine: Inline
-# Compact initialization lists for memory efficiency
-PackConstructorInitializers: CurrentLine
-# Minimize line breaks in templates
-AlwaysBreakTemplateDeclarations: Yes
+# Namespace formatting
+CompactNamespaces: false
+FixNamespaceComments: true
+NamespaceIndentation: None
+
+# Constructor formatting
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+ConstructorInitializerIndentWidth: 4
+Cpp11BracedListStyle: true
+
+# Macro formatting
+ForEachMacros:
+  - foreach
+  - Q_FOREACH
+  - BOOST_FOREACH
+
+# Keep empty lines
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+
+# Experimental settings for better embedded formatting
+ExperimentalAutoDetectBinPacking: false
+PackConstructorInitializers: BinPack

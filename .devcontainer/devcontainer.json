@@ -1,0 +1,89 @@
+{
+    "name": "Liquid AI Vision Kit Development",
+    "image": "mcr.microsoft.com/devcontainers/cpp:1-ubuntu-22.04",
+    
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": true,
+            "upgradePackages": true
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "nodeGitTagLtsVersion": "18",
+            "installYarnUsingApt": true
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.11",
+            "installTools": true
+        },
+        "ghcr.io/devcontainers/features/git:1": {
+            "ppa": true,
+            "version": "latest"
+        }
+    },
+
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "cmake.configureOnOpen": true,
+                "cmake.buildDirectory": "${workspaceFolder}/build",
+                "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+                "C_Cpp.default.cStandard": "c17",
+                "C_Cpp.default.cppStandard": "c++17",
+                "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+                "editor.formatOnSave": true,
+                "editor.formatOnPaste": true,
+                "files.trimTrailingWhitespace": true,
+                "files.insertFinalNewline": true,
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.provider": "black"
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "ms-vscode.cmake-tools",
+                "ms-python.python",
+                "ms-python.pylint",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "ms-toolsai.jupyter",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "ms-vscode.hexdump",
+                "ms-vscode.test-adapter-converter",
+                "matepek.vscode-catch2-test-adapter",
+                "davidanson.vscode-markdownlint",
+                "yzhang.markdown-all-in-one",
+                "bierner.markdown-mermaid",
+                "esbenp.prettier-vscode",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.vscode-serial-monitor",
+                "marus25.cortex-debug",
+                "dan-c-underwood.arm"
+            ]
+        }
+    },
+
+    "forwardPorts": [8080],
+    "portsAttributes": {
+        "8080": {
+            "label": "Documentation Server",
+            "onAutoForward": "notify"
+        }
+    },
+
+    "postCreateCommand": ".devcontainer/setup.sh",
+
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+
+    "runArgs": [
+        "--privileged"
+    ],
+
+    "remoteUser": "vscode"
+}
