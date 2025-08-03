@@ -1,49 +1,66 @@
-# EditorConfig configuration for Liquid AI Vision Kit
-# https://editorconfig.org/
+# EditorConfig is awesome: https://EditorConfig.org
 
+# top-most EditorConfig file
 root = true
 
+# Universal settings
 [*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 indent_style = space
 indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-max_line_length = 120
 
-[*.{cpp,hpp,c,h}]
+# C++ files
+[*.{cpp,hpp,c,h,cc,cxx}]
 indent_size = 4
 max_line_length = 100
 
-[*.{py}]
+# Python files
+[*.py]
 indent_size = 4
-max_line_length = 88
+max_line_length = 120
 
-[*.{js,ts,json}]
-indent_size = 2
-
+# YAML files
 [*.{yml,yaml}]
 indent_size = 2
 
-[*.{md}]
-trim_trailing_whitespace = false
-max_line_length = off
+# JSON files
+[*.json]
+indent_size = 2
 
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = 80
+
+# Makefiles
 [Makefile]
 indent_style = tab
 
-[CMakeLists.txt,*.cmake]
-indent_size = 4
+# CMake files
+[CMakeLists.txt]
+indent_size = 2
 
+# Shell scripts
 [*.sh]
 indent_size = 2
 
-[*.xml]
+# Dockerfiles
+[Dockerfile*]
 indent_size = 2
 
-[*.toml]
+# SQL files
+[*.sql]
 indent_size = 4
+max_line_length = 120
 
-[*.ini]
-indent_size = 4
+# Configuration files
+[*.{ini,cfg,conf}]
+indent_size = 2
+
+# Web files
+[*.{html,css,js,jsx,ts,tsx}]
+indent_size = 2
+max_line_length = 100
