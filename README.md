@@ -454,9 +454,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 ```bibtex
 @software{liquid_ai_vision_kit,
   title={Liquid AI Vision Kit: Adaptive Neural Networks for Micro-Aerial Vehicles},
-  author={Your Name},
+  author={Daniel Schmidt},
   year={2025},
-  url={https://github.com/yourusername/liquid-ai-vision-kit}
+  url={https://github.com/danieleschmidt/liquid-ai-vision-kit}
 }
 ```
 
