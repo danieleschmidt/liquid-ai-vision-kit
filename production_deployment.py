@@ -22,6 +22,7 @@ from quantum_task_planner import (
     QuantumTaskEngine, TaskValidator, QuantumCacheManager,
     create_default_engine, get_version_info
 )
+from quantum_task_planner.integration_bridge import LNNQuantumBridge, LNNBridgeConfig
 
 
 @dataclass
@@ -59,6 +60,7 @@ class ProductionDeployment:
         self.engine: Optional[QuantumTaskEngine] = None
         self.validator: Optional[TaskValidator] = None
         self.cache_manager: Optional[QuantumCacheManager] = None
+        self.lnn_bridge: Optional[LNNQuantumBridge] = None
         self.is_running = False
         self.deployment_start_time = time.time()
         
@@ -245,6 +247,16 @@ class ProductionDeployment:
                 self.cache_manager = QuantumCacheManager()
                 self.logger.info("✓ Cache manager initialized")
             
+            # Initialize LNN integration bridge
+            if self.config.lnn_integration:
+                bridge_config = LNNBridgeConfig(
+                    enable_cpp_integration=True,
+                    enable_real_time_adaptation=True,
+                    update_interval_ms=50  # High frequency for production
+                )
+                self.lnn_bridge = LNNQuantumBridge(bridge_config)
+                self.logger.info("✓ LNN integration bridge initialized")
+            
             return True
             
         except Exception as e:
@@ -298,6 +310,13 @@ class ProductionDeployment:
         
         try:
             self.engine.start_scheduler()
+            
+            # Start LNN bridge if available
+            if self.lnn_bridge:
+                if self.lnn_bridge.start_bridge():
+                    self.logger.info("✓ LNN integration bridge started")
+                else:
+                    self.logger.warning("LNN bridge failed to start, continuing without LNN integration")
             
             # Verify engine is running
             time.sleep(1.0)
@@ -437,6 +456,10 @@ class ProductionDeployment:
         self.logger.info("Initiating graceful shutdown...")
         
         self.is_running = False
+        
+        if self.lnn_bridge:
+            self.lnn_bridge.stop_bridge()
+            self.logger.info("✓ LNN integration bridge stopped")
         
         if self.engine:
             self.engine.stop_scheduler()
