@@ -1,30 +1,10 @@
 #include "../include/liquid_vision/lnn_controller.hpp"
-#include "core/liquid_network.h"
-#include "vision/image_processor.h"
-#include "control/flight_controller.h"
 #include <chrono>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 
 namespace LiquidVision {
-
-// Placeholder types that should be defined in headers
-struct ODESolver {
-    enum class Type {
-        FIXED_POINT_RK4,
-        EULER,
-        ADAPTIVE
-    };
-};
-
-struct PerformanceStats {
-    uint32_t total_frames = 0;
-    uint32_t failed_frames = 0;
-    float average_inference_time_ms = 0.0f;
-    float average_confidence = 0.0f;
-    float total_energy_consumed_j = 0.0f;
-    float average_power_mw = 0.0f;
-};
 
 class LNNController::Impl {
 public:
