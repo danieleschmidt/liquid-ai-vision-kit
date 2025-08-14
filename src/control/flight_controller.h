@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <vector>
 #include <memory>
 #include <queue>
@@ -69,7 +70,8 @@ private:
     std::vector<std::string> violations_;
 
 public:
-    explicit SafetyMonitor(const Limits& limits = Limits());
+    SafetyMonitor() : limits_() {}
+    explicit SafetyMonitor(const Limits& limits) : limits_(limits) {}
     
     bool check_command(FlightCommand& cmd, const DroneState& state);
     bool check_state(const DroneState& state);

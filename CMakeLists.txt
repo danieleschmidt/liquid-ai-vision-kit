@@ -70,14 +70,12 @@ if(NOT EMBEDDED_BUILD)
     endif()
 endif()
 
-# Source files
+# Source files (minimal working set)
 set(LIQUID_VISION_SOURCES
     src/core/liquid_neuron.cpp
     src/core/liquid_network.cpp
     src/core/ode_solver.cpp
     src/vision/image_processor.cpp
-    src/vision/feature_extractor.cpp
-    src/control/flight_controller.cpp
     src/utils/fixed_point.cpp
     src/utils/math_utils.cpp
 )
@@ -91,6 +89,9 @@ set(LIQUID_VISION_HEADERS
     include/liquid_vision/control/flight_controller.h
     include/liquid_vision/utils/fixed_point.h
     include/liquid_vision/utils/math_utils.h
+    include/liquid_vision/utils/error_handling.h
+    include/liquid_vision/utils/logger.h
+    include/liquid_vision/optimization/performance_optimizer.h
     include/liquid_vision/lnn_controller.hpp
 )
 
