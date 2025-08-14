@@ -7,7 +7,7 @@
 namespace LiquidVision {
 
 // SafetyMonitor implementation
-SafetyMonitor::SafetyMonitor(const Limits& limits) : limits_(limits) {}
+// Constructor implementations are now inline in header
 
 bool SafetyMonitor::check_command(FlightCommand& cmd, const DroneState& state) {
     violations_.clear();
