@@ -117,6 +117,20 @@ endif()
 
 # Executable targets
 if(NOT EMBEDDED_BUILD)
+    # Generation 1 Demo
+    add_executable(liquid_vision_demo
+        src/main_demo.cpp
+    )
+    
+    target_link_libraries(liquid_vision_demo PRIVATE liquid_vision_core)
+    
+    # Generation 2 Robust Demo
+    add_executable(liquid_vision_robust
+        src/robust_demo.cpp
+    )
+    
+    target_link_libraries(liquid_vision_robust PRIVATE liquid_vision_core)
+    
     # Simulation executable
     add_executable(liquid_vision_sim
         src/simulation/main.cpp

@@ -1,6 +1,7 @@
 #include "simple_test.h"
 #include <iostream>
 #include <vector>
+#include <functional>
 
 // Simple test framework implementation
 std::vector<std::function<void()>> test_functions;

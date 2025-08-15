@@ -34,14 +34,12 @@ struct PerformanceStats {
 /**
  * ODE Solver types for liquid neural networks
  */
-namespace ODESolver {
-    enum class Type {
-        EULER,
-        RK4,
-        FIXED_POINT_RK4,
-        ADAPTIVE_EULER
-    };
-}
+enum class ODESolverType {
+    EULER,
+    RK4,
+    FIXED_POINT_RK4,
+    ADAPTIVE_EULER
+};
 
 /**
  * Image preprocessing pipeline optimized for embedded systems
