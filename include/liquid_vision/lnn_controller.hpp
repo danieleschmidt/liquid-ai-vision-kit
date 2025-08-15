@@ -23,7 +23,7 @@ public:
     struct Config {
         std::string model_path;           ///< Path to the LNN model file
         std::pair<int, int> input_resolution{160, 120}; ///< Input image resolution
-        ODESolver::Type ode_solver = ODESolver::Type::FIXED_POINT_RK4; ///< ODE solver type
+        int ode_solver_type = 2; ///< ODE solver type (0=EULER, 1=RK4, 2=ADAPTIVE)
         bool timestep_adaptive = true;    ///< Enable adaptive timestep
         float max_inference_time_ms = 20.0f; ///< Maximum allowed inference time
         int memory_limit_kb = 256;        ///< Memory limit for embedded deployment
@@ -110,11 +110,9 @@ private:
     bool initialized_ = false;                   ///< Initialization status
     bool model_loaded_ = false;                  ///< Model loading status
     
-    std::unique_ptr<LiquidNetwork> network_;     ///< Neural network instance
-    std::unique_ptr<ImageProcessor> processor_;   ///< Image preprocessing
-    std::unique_ptr<FlightController> controller_; ///< Flight control interface
-    
-    PerformanceStats stats_;                     ///< Performance statistics
+    // Forward declarations - implementation hidden using Pimpl idiom
+    class Impl;
+    std::unique_ptr<Impl> pImpl;                 ///< Private implementation
     
     /**
      * @brief Load the neural network model from file
