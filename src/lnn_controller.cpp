@@ -1,173 +1,174 @@
 #include "../include/liquid_vision/lnn_controller.hpp"
+#include "../include/liquid_vision/core/liquid_network.h"
+#include "../include/liquid_vision/vision/image_processor.h"
+#include "../include/liquid_vision/control/flight_controller.h"
+#include <memory>
 #include <chrono>
-#include <fstream>
-#include <iostream>
 #include <algorithm>
 
 namespace LiquidVision {
 
 class LNNController::Impl {
 public:
-    Config config;
-    bool initialized = false;
-    bool model_loaded = false;
+    std::unique_ptr<LiquidNetwork> network_;
+    std::unique_ptr<ImageProcessor> image_processor_;
+    Config config_;
+    bool initialized_ = false;
     
-    std::unique_ptr<LiquidNetwork> network;
-    std::unique_ptr<ImageProcessor> processor;
-    std::unique_ptr<FlightController> controller;
+    // Performance metrics
+    uint32_t inference_count_ = 0;
+    float total_inference_time_ms_ = 0.0f;
+    float total_power_consumption_mw_ = 0.0f;
     
-    PerformanceStats stats;
-    
-    Impl(const Config& cfg) : config(cfg) {}
+    Impl(const Config& config) : config_(config) {}
     
     bool initialize() {
-        // Initialize image processor
-        ImageProcessor::Config proc_config;
-        proc_config.target_width = config.input_resolution.first;
-        proc_config.target_height = config.input_resolution.second;
-        proc_config.use_temporal_filter = config.timestep_adaptive;
-        processor = std::make_unique<ImageProcessor>(proc_config);
-        
-        // Initialize neural network
+        // Create liquid network configuration
         LiquidNetwork::NetworkConfig net_config;
         
-        // Create a 3-layer network for vision processing
-        net_config.layers.push_back({64, {1.0f, 0.1f, 0.5f, 0.01f}, true});  // Input layer
-        net_config.layers.push_back({32, {0.8f, 0.15f, 0.6f, 0.02f}, true}); // Hidden layer
-        net_config.layers.push_back({4, {0.5f, 0.2f, 0.7f, 0.03f}, true});   // Output layer
+        // Input layer for vision features
+        LiquidNetwork::LayerConfig input_layer;
+        input_layer.num_neurons = 64;  // Vision feature neurons
+        input_layer.params.tau = 0.8f;
+        input_layer.params.leak = 0.15f;
+        input_layer.use_fixed_point = config_.use_fixed_point;
         
-        net_config.timestep = 0.01f;
-        net_config.max_iterations = 10;
-        net_config.adaptive_timestep = config.timestep_adaptive;
+        // Hidden layer for processing
+        LiquidNetwork::LayerConfig hidden_layer;
+        hidden_layer.num_neurons = 32;
+        hidden_layer.params.tau = 1.2f;
+        hidden_layer.params.leak = 0.1f;
+        hidden_layer.use_fixed_point = config_.use_fixed_point;
         
-        network = std::make_unique<LiquidNetwork>(net_config);
+        // Output layer for control signals
+        LiquidNetwork::LayerConfig output_layer;
+        output_layer.num_neurons = 8;  // Control outputs
+        output_layer.params.tau = 0.5f;
+        output_layer.params.leak = 0.2f;
+        output_layer.use_fixed_point = config_.use_fixed_point;
         
-        if (!network->initialize()) {
-            return false;
-        }
+        net_config.layers = {input_layer, hidden_layer, output_layer};
+        net_config.timestep = config_.ode_timestep;
+        net_config.max_iterations = config_.max_iterations;
+        net_config.adaptive_timestep = config_.adaptive_timestep;
         
-        // Initialize flight controller
-        controller = std::make_unique<FlightController>(FlightController::ControllerType::SIMULATION);
+        // Create network
+        network_ = std::make_unique<LiquidNetwork>(net_config);
         
-        if (!controller->initialize()) {
-            return false;
-        }
-        
-        initialized = true;
-        return true;
-    }
-    
-    bool load_model() {
-        if (!network) return false;
-        
-        // Try to load model from file
-        if (!config.model_path.empty()) {
-            if (network->load_weights(config.model_path)) {
-                model_loaded = true;
-                return true;
+        // Initialize weights
+        if (!config_.model_path.empty()) {
+            if (!network_->load_weights(config_.model_path)) {
+                // Fall back to random initialization
+                if (!network_->initialize()) {
+                    return false;
+                }
+            }
+        } else {
+            if (!network_->initialize()) {
+                return false;
             }
         }
         
-        // If no model file, we're already initialized with random weights
-        model_loaded = true;
+        // Create image processor
+        ImageProcessor::Config img_config;
+        img_config.target_width = config_.input_width;
+        img_config.target_height = config_.input_height;
+        img_config.use_temporal_filter = config_.use_temporal_filtering;
+        
+        image_processor_ = std::make_unique<ImageProcessor>(img_config);
+        
+        initialized_ = true;
         return true;
     }
     
-    ControlOutput process_frame(const uint8_t* image_data, int width, int height, int channels) {
+    ControlOutput process_frame(const std::vector<uint8_t>& image_data) {
         auto start_time = std::chrono::high_resolution_clock::now();
         
         ControlOutput output;
-        
-        if (!initialized || !model_loaded) {
+        if (!initialized_) {
             return output;
         }
         
-        // Process image
-        ProcessedFrame frame = processor->process(image_data, width, height, channels);
+        // Process image to extract features - simple conversion for now
+        std::vector<float> features;
+        int expected_size = config_.input_width * config_.input_height;
         
-        // Prepare input for neural network
-        std::vector<float> nn_input;
-        
-        // Downsample frame data to match network input size
-        int input_size = network->get_config().layers[0].num_neurons;
-        int skip = frame.data.size() / input_size;
-        
-        for (size_t i = 0; i < frame.data.size() && nn_input.size() < input_size; i += skip) {
-            nn_input.push_back(frame.data[i]);
-        }
-        
-        // Ensure correct input size
-        nn_input.resize(input_size, 0.0f);
-        
-        // Add temporal difference as additional input
-        if (input_size > 1) {
-            nn_input[input_size - 1] = frame.temporal_diff;
-        }
-        
-        // Run neural network inference
-        auto inference_result = network->forward(nn_input);
-        
-        // Map network outputs to control commands
-        if (inference_result.outputs.size() >= 3) {
-            output.forward_velocity = inference_result.outputs[0] * 5.0f;  // Scale to m/s
-            output.yaw_rate = inference_result.outputs[1] * 1.0f;         // Scale to rad/s
-            output.target_altitude = (inference_result.outputs[2] + 1.0f) * 5.0f; // 0-10m range
-            
-            if (inference_result.outputs.size() >= 4) {
-                output.confidence = std::abs(inference_result.outputs[3]);
-            } else {
-                output.confidence = inference_result.confidence;
+        // Convert raw image data to features (simplified)
+        if (image_data.size() >= expected_size * 3) {
+            // RGB to grayscale conversion
+            features.reserve(expected_size);
+            for (int i = 0; i < expected_size; ++i) {
+                float r = image_data[i * 3 + 0] / 255.0f;
+                float g = image_data[i * 3 + 1] / 255.0f;
+                float b = image_data[i * 3 + 2] / 255.0f;
+                features.push_back(0.299f * r + 0.587f * g + 0.114f * b);
             }
+        } else {
+            // Fill with zeros if data insufficient
+            features.resize(expected_size, 0.0f);
         }
         
-        // Calculate timing
-        auto end_time = std::chrono::high_resolution_clock::now();
-        output.inference_time_us = std::chrono::duration_cast<std::chrono::microseconds>(
-            end_time - start_time).count();
+        // Downsample to network input size
+        std::vector<float> network_input;
+        int network_input_size = network_->get_config().layers[0].num_neurons;
+        int skip = std::max(1, static_cast<int>(features.size() / network_input_size));
         
-        // Update statistics
-        update_stats(output, inference_result);
+        for (size_t i = 0; i < features.size() && network_input.size() < network_input_size; i += skip) {
+            network_input.push_back(features[i]);
+        }
+        network_input.resize(network_input_size, 0.0f);
+        
+        // Run liquid neural network inference
+        auto result = network_->forward(network_input);
+        
+        // Convert network outputs to control signals
+        if (result.outputs.size() >= 8) {
+            output.velocity_x = std::tanh(result.outputs[0]) * config_.max_velocity;
+            output.velocity_y = std::tanh(result.outputs[1]) * config_.max_velocity;
+            output.velocity_z = std::tanh(result.outputs[2]) * config_.max_velocity;
+            output.yaw_rate = std::tanh(result.outputs[3]) * config_.max_yaw_rate;
+            output.thrust = (std::tanh(result.outputs[4]) + 1.0f) * 0.5f; // [0,1]
+            
+            // Legacy fields for compatibility
+            output.forward_velocity = output.velocity_x;
+            output.target_altitude = 5.0f + output.velocity_z; // Relative to base altitude
+            
+            // Obstacle avoidance signals
+            output.obstacle_left = std::max(0.0f, result.outputs[5]);
+            output.obstacle_right = std::max(0.0f, result.outputs[6]);
+            output.obstacle_front = std::max(0.0f, result.outputs[7]);
+        }
+        
+        output.confidence = result.confidence;
+        output.processing_time_ms = result.computation_time_us / 1000.0f;
+        output.power_consumption_mw = network_->get_power_consumption();
+        output.inference_time_us = result.computation_time_us;
+        
+        // Update metrics
+        auto end_time = std::chrono::high_resolution_clock::now();
+        float total_time_ms = std::chrono::duration_cast<std::chrono::microseconds>(
+            end_time - start_time).count() / 1000.0f;
+        
+        inference_count_++;
+        total_inference_time_ms_ += total_time_ms;
+        total_power_consumption_mw_ += output.power_consumption_mw;
         
         return output;
     }
     
-    void update_stats(const ControlOutput& output, const LiquidNetwork::InferenceResult& inference) {
-        stats.total_frames++;
-        
-        // Update running averages
-        float alpha = 0.95f;  // Exponential moving average factor
-        
-        float inference_time_ms = output.inference_time_us / 1000.0f;
-        stats.average_inference_time_ms = alpha * stats.average_inference_time_ms + 
-                                         (1 - alpha) * inference_time_ms;
-        
-        stats.average_confidence = alpha * stats.average_confidence + 
-                                  (1 - alpha) * output.confidence;
-        
-        stats.total_energy_consumed_j += inference.energy_consumed_mj / 1000.0f;
-        
-        float current_power = network->get_power_consumption();
-        stats.average_power_mw = alpha * stats.average_power_mw + (1 - alpha) * current_power;
-    }
-    
-    bool validate_config() const {
-        if (config.input_resolution.first <= 0 || config.input_resolution.second <= 0) {
-            return false;
+    InferenceStats get_stats() const {
+        InferenceStats stats;
+        if (inference_count_ > 0) {
+            stats.average_inference_time_ms = total_inference_time_ms_ / inference_count_;
+            stats.average_power_consumption_mw = total_power_consumption_mw_ / inference_count_;
         }
-        
-        if (config.max_inference_time_ms <= 0) {
-            return false;
-        }
-        
-        if (config.memory_limit_kb <= 0) {
-            return false;
-        }
-        
-        return true;
+        stats.total_inferences = inference_count_;
+        stats.memory_usage_kb = network_ ? network_->get_memory_usage() : 0.0f;
+        return stats;
     }
 };
 
-// Main LNNController implementation
+// LNNController implementation
 LNNController::LNNController(const Config& config) 
     : config_(config), pImpl(std::make_unique<Impl>(config)) {
 }
@@ -183,38 +184,35 @@ bool LNNController::initialize() {
         return false;
     }
     
-    if (!load_model()) {
-        return false;
-    }
-    
     initialized_ = true;
+    model_loaded_ = true;
     return true;
 }
 
-LNNController::ControlOutput LNNController::process_frame(const uint8_t* image_data,
-                                                         int width, int height, int channels) {
-    return pImpl->process_frame(image_data, width, height, channels);
+LNNController::ControlOutput LNNController::process_frame(const std::vector<uint8_t>& image_data) {
+    return pImpl->process_frame(image_data);
 }
 
 ProcessedFrame LNNController::preprocess(const uint8_t* image_data,
                                         int width, int height, int channels) {
-    if (!pImpl->processor) {
-        return ProcessedFrame();
+    ProcessedFrame frame;
+    if (!pImpl->image_processor_) {
+        return frame;
     }
     
-    return pImpl->processor->process(image_data, width, height, channels);
+    return pImpl->image_processor_->process(image_data, width, height, channels);
 }
 
 LNNController::ControlOutput LNNController::infer(const ProcessedFrame& frame) {
     ControlOutput output;
     
-    if (!initialized_ || !model_loaded_ || !pImpl->network) {
+    if (!initialized_ || !model_loaded_ || !pImpl->network_) {
         return output;
     }
     
     // Convert ProcessedFrame to network input
     std::vector<float> nn_input;
-    int input_size = pImpl->network->get_config().layers[0].num_neurons;
+    int input_size = pImpl->network_->get_config().layers[0].num_neurons;
     int skip = std::max(1, static_cast<int>(frame.data.size() / input_size));
     
     for (size_t i = 0; i < frame.data.size() && nn_input.size() < input_size; i += skip) {
@@ -224,7 +222,7 @@ LNNController::ControlOutput LNNController::infer(const ProcessedFrame& frame) {
     nn_input.resize(input_size, 0.0f);
     
     // Run inference
-    auto result = pImpl->network->forward(nn_input);
+    auto result = pImpl->network_->forward(nn_input);
     
     // Map to control output
     if (result.outputs.size() >= 3) {
@@ -235,22 +233,36 @@ LNNController::ControlOutput LNNController::infer(const ProcessedFrame& frame) {
         output.inference_time_us = result.computation_time_us;
     }
     
-    pImpl->update_stats(output, result);
-    
     return output;
 }
 
-PerformanceStats LNNController::get_performance_stats() const {
-    return pImpl->stats;
+InferenceStats LNNController::get_performance_stats() const {
+    return pImpl->get_stats();
+}
+
+bool LNNController::is_initialized() const {
+    return initialized_;
 }
 
 bool LNNController::load_model() {
-    model_loaded_ = pImpl->load_model();
-    return model_loaded_;
+    // Model loading is handled in initialize()
+    return true;
 }
 
 bool LNNController::validate_config() const {
-    return pImpl->validate_config();
+    if (config_.input_width <= 0 || config_.input_height <= 0) {
+        return false;
+    }
+    
+    if (config_.max_inference_time_ms <= 0) {
+        return false;
+    }
+    
+    if (config_.memory_limit_kb <= 0) {
+        return false;
+    }
+    
+    return true;
 }
 
 } // namespace LiquidVision
