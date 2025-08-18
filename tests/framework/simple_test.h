@@ -25,6 +25,11 @@ struct TestStats {
 };
 
 /**
+ * @brief Register a test case
+ */
+void register_test(class TestCase* test_case);
+
+/**
  * @brief Base class for test cases
  */
 class TestCase {
@@ -38,11 +43,6 @@ public:
     
     std::string name;
 };
-
-/**
- * @brief Register a test case
- */
-void register_test(TestCase* test_case);
 
 /**
  * @brief Run all registered tests
