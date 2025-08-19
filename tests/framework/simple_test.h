@@ -3,6 +3,7 @@
 #include <string>
 #include <stdexcept>
 #include <cmath>
+#include <iostream>
 
 namespace SimpleTest {
 
@@ -88,6 +89,22 @@ void assert_equal(float expected, float actual, float tolerance,
 
 #define ASSERT_FLOAT_EQ(expected, actual, tolerance, message) \
     SimpleTest::assert_equal(expected, actual, tolerance, message, __FILE__, __LINE__)
+
+#define ASSERT_FLOAT_NEAR(expected, actual, tolerance) \
+    SimpleTest::assert_equal(expected, actual, tolerance, "Values should be near", __FILE__, __LINE__)
+
+#define ASSERT_GE(actual, expected, message) \
+    SimpleTest::assert_true((actual) >= (expected), message, __FILE__, __LINE__)
+
+#define RUN_TEST(test_func) \
+    do { \
+        try { \
+            test_func(); \
+            std::cout << "PASSED: " << #test_func << std::endl; \
+        } catch (const std::exception& e) { \
+            std::cout << "FAILED: " << #test_func << " - " << e.what() << std::endl; \
+        } \
+    } while(0)
 
 #define TEST_CLASS(class_name, test_name) \
     class class_name : public SimpleTest::TestCase { \

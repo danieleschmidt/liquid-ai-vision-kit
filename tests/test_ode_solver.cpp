@@ -90,8 +90,8 @@ void test_adaptive_timestep() {
         state = solver.solve_step(state, inputs);
         
         // Should remain stable and finite
-        ASSERT_TRUE(std::isfinite(state[0]));
-        ASSERT_GE(state[0], 0.0f); // Should decay towards zero
+        ASSERT_TRUE(std::isfinite(state[0]), "State should be finite");
+        ASSERT_GE(state[0], 0.0f, "State should decay towards zero");
     }
 }
 
