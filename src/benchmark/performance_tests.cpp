@@ -113,12 +113,12 @@ void benchmark_vision_pipeline(PerformanceProfiler& profiler) {
     };
     
     for (const auto& res : resolutions) {
-        ImageProcessor processor;
         ImageProcessor::Config config;
         config.target_width = res.first;
         config.target_height = res.second;
+        ImageProcessor processor(config);
         
-        processor.configure(config);
+        // Config already applied in constructor
         
         // Generate test image
         std::vector<uint8_t> test_image(res.first * res.second * 3);
@@ -163,11 +163,10 @@ void benchmark_integrated_system(PerformanceProfiler& profiler) {
     LiquidNetwork network(net_config);
     network.initialize();
     
-    ImageProcessor processor;
     ImageProcessor::Config img_config;
     img_config.target_width = 160;
     img_config.target_height = 120;
-    processor.configure(img_config);
+    ImageProcessor processor(img_config);
     
     // Generate test data
     std::vector<uint8_t> camera_frame(160 * 120 * 3);
