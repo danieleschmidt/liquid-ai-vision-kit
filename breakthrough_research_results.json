@@ -1,0 +1,1944 @@
+{
+  "study_metadata": {
+    "num_experiments": 30,
+    "start_time": 1755819624.6275494,
+    "architectures_tested": [
+      "quantum_inspired",
+      "neuromorphic_spiking",
+      "adaptive_topology",
+      "consciousness_attention",
+      "multi_scale_temporal"
+    ],
+    "end_time": 1755819624.6455677,
+    "total_duration": 0.018018245697021484
+  },
+  "architecture_results": {
+    "quantum_inspired": [
+      {
+        "architecture": "quantum_inspired",
+        "timestamp": 1755819624.6277597,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "quantum": [
+            0.18097851646397883,
+            0.7098006978204563,
+            0.0010776270824731956,
+            0.29014348421137054,
+            0.022595224208357825,
+            0.8664717679091123,
+            0.3067107069315218,
+            0.15023862023715215,
+            0.8576236269495097,
+            0.1687727529764523,
+            0.003994278963710901,
+            0.4677033408251552
+          ]
+        },
+        "metrics": {
+          "quantum_coherence": 0.653116082148446,
+          "emergence_factor": 0.653116092148446
+        },
+        "processing_time": 0.0004146099090576172
+      },
+      {
+        "architecture": "quantum_inspired",
+        "timestamp": 1755819624.6283164,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "quantum": [
+            0.2159919833252191,
+            0.3717566451236621,
+            0.48363701022996713,
+            0.944926150676045,
+            0.6447977070356025,
+            0.22883139958332305,
+            0.08972153300204619,
+            0.6806313095776415,
+            0.7108734733703015,
+            0.18659356771873734,
+            0.5471341002990767,
+            0.16377596092375657
+          ]
+        },
+        "metrics": {
+          "quantum_coherence": 0.8306826530919755,
+          "emergence_factor": 0.8306826630919756
+        },
+        "processing_time": 0.0002598762512207031
+      },
+      {
+        "architecture": "quantum_inspired",
+        "timestamp": 1755819624.628705,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "quantum": [
+            0.18097851646397875,
+            0.6131524775859906,
+            0.9951378456224793,
+            0.36919791133180724,
+            0.3688273192359711,
+            0.1508219045644416,
+            0.5163952148263588,
+            0.15023862023715237,
+            0.0467685073154018,
+            0.8140622332509634,
+            0.356701564860197,
+            0.13260372300984247
+          ]
+        },
+        "metrics": {
+          "quantum_coherence": 0.7566574751557275,
+          "emergence_factor": 0.7566574851557275
+        },
+        "processing_time": 0.00026035308837890625
+      },
+      {
+        "architecture": "quantum_inspired",
+        "timestamp": 1755819624.6290357,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "quantum": [
+            0.8310827438600877,
+            0.799899335413504,
+            0.43482094986970193,
+            0.7574038773700027,
+            0.9475928490249255,
+            0.856990989298342,
+            0.7859115805477372,
+            0.3460624853272667,
+            0.6399908921398691,
+            0.6020860475445944,
+            0.5273593495554582,
+            0.8365049538590927
+          ]
+        },
+        "metrics": {
+          "quantum_coherence": 0.8327514969645758,
+          "emergence_factor": 0.8327515069645759
+        },
+        "processing_time": 0.00029540061950683594
+      },
+      {
+        "architecture": "quantum_inspired",
+        "timestamp": 1755819624.629411,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "quantum": [
+            0.8190214835360199,
+            0.38684752241400877,
+            0.004862154377520027,
+            0.630802088668192,
+            0.6311726807640279,
+            0.8491780954355571,
+            0.4836047851736403,
+            0.15023862023715226,
+            0.04676850731540172,
+            0.8140622332509632,
+            0.356701564860197,
+            0.13260372300984244
+          ]
+        },
+        "metrics": {
+          "quantum_coherence": 0.756657475155727,
+          "emergence_factor": 0.7566574851557271
+        },
+        "processing_time": 0.0003592967987060547
+      },
+      {
+        "architecture": "quantum_inspired",
+        "timestamp": 1755819624.629859,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "quantum": [
+            0.8758437666561507,
+            0.7101597734038818,
+            0.4604081728251419,
+            0.9823354847709862,
+            0.7566426060917132,
+            0.7918568738261915,
+            0.3728822162688039,
+            0.14800061412852752,
+            0.31854135749933404,
+            0.29397878612724826,
+            0.30118941315233166,
+            0.5186377640216917
+          ]
+        },
+        "metrics": {
+          "quantum_coherence": 0.8278812560329958,
+          "emergence_factor": 0.8278812660329958
+        },
+        "processing_time": 0.000293731689453125
+      }
+    ],
+    "neuromorphic_spiking": [
+      {
+        "architecture": "neuromorphic_spiking",
+        "timestamp": 1755819624.6302302,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "spikes": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "metrics": {
+          "spike_timing_precision": 0.0,
+          "emergence_factor": 1.0000000000000018e-08
+        },
+        "processing_time": 0.0004279613494873047
+      },
+      {
+        "architecture": "neuromorphic_spiking",
+        "timestamp": 1755819624.6307285,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "spikes": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "metrics": {
+          "spike_timing_precision": 0.0,
+          "emergence_factor": 1.0000000000000018e-08
+        },
+        "processing_time": 0.0004627704620361328
+      },
+      {
+        "architecture": "neuromorphic_spiking",
+        "timestamp": 1755819624.631267,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "spikes": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "metrics": {
+          "spike_timing_precision": 0.0,
+          "emergence_factor": 1.0000000000000018e-08
+        },
+        "processing_time": 0.0005002021789550781
+      },
+      {
+        "architecture": "neuromorphic_spiking",
+        "timestamp": 1755819624.6318414,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "spikes": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "metrics": {
+          "spike_timing_precision": 0.0,
+          "emergence_factor": 1.0000000000000018e-08
+        },
+        "processing_time": 0.0006310939788818359
+      },
+      {
+        "architecture": "neuromorphic_spiking",
+        "timestamp": 1755819624.6326776,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "spikes": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "metrics": {
+          "spike_timing_precision": 0.0,
+          "emergence_factor": 1.0000000000000018e-08
+        },
+        "processing_time": 0.0004596710205078125
+      },
+      {
+        "architecture": "neuromorphic_spiking",
+        "timestamp": 1755819624.6332474,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "spikes": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        "metrics": {
+          "spike_timing_precision": 0.0,
+          "emergence_factor": 1.0000000000000018e-08
+        },
+        "processing_time": 0.0004825592041015625
+      }
+    ],
+    "adaptive_topology": [
+      {
+        "architecture": "adaptive_topology",
+        "timestamp": 1755819624.6340032,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "topology": {
+            "num_neurons": 40,
+            "num_connections": 471
+          }
+        },
+        "metrics": {
+          "topology_plasticity": 0.0030889555718992133,
+          "emergence_factor": 0.0030889655718992137
+        },
+        "processing_time": 0.0008168220520019531
+      },
+      {
+        "architecture": "adaptive_topology",
+        "timestamp": 1755819624.6349337,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "topology": {
+            "num_neurons": 40,
+            "num_connections": 471
+          }
+        },
+        "metrics": {
+          "topology_plasticity": 0.0030888186468881087,
+          "emergence_factor": 0.003088828646888108
+        },
+        "processing_time": 0.0008568763732910156
+      },
+      {
+        "architecture": "adaptive_topology",
+        "timestamp": 1755819624.6358762,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "topology": {
+            "num_neurons": 40,
+            "num_connections": 471
+          }
+        },
+        "metrics": {
+          "topology_plasticity": 0.0030887859462957806,
+          "emergence_factor": 0.0030887959462957805
+        },
+        "processing_time": 0.0006818771362304688
+      },
+      {
+        "architecture": "adaptive_topology",
+        "timestamp": 1755819624.6366313,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "topology": {
+            "num_neurons": 40,
+            "num_connections": 471
+          }
+        },
+        "metrics": {
+          "topology_plasticity": 0.003089897778399271,
+          "emergence_factor": 0.0030899077783992724
+        },
+        "processing_time": 0.0006611347198486328
+      },
+      {
+        "architecture": "adaptive_topology",
+        "timestamp": 1755819624.6373925,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "topology": {
+            "num_neurons": 40,
+            "num_connections": 471
+          }
+        },
+        "metrics": {
+          "topology_plasticity": 0.003091126565383277,
+          "emergence_factor": 0.0030911365653832766
+        },
+        "processing_time": 0.0007593631744384766
+      },
+      {
+        "architecture": "adaptive_topology",
+        "timestamp": 1755819624.6382585,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "topology": {
+            "num_neurons": 40,
+            "num_connections": 471
+          }
+        },
+        "metrics": {
+          "topology_plasticity": 0.003093632151986596,
+          "emergence_factor": 0.0030936421519865975
+        },
+        "processing_time": 0.0006194114685058594
+      }
+    ],
+    "consciousness_attention": [
+      {
+        "architecture": "consciousness_attention",
+        "timestamp": 1755819624.6389544,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "consciousness": {
+            "global_workspace": [
+              0.95,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "attention_output": [
+              0.8044296825069569,
+              0.8044296825069569,
+              0.8044296825069569,
+              0.8044296825069569,
+              0.8044296825069569,
+              0.8044296825069569,
+              0.6697615493266569,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "metrics": {
+          "consciousness_index": 0.48717948717948717,
+          "attention_focus": 0.6805084328079213,
+          "emergence_factor": 0.4871794971794872
+        },
+        "processing_time": 0.0002522468566894531
+      },
+      {
+        "architecture": "consciousness_attention",
+        "timestamp": 1755819624.6392722,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "consciousness": {
+            "global_workspace": [
+              0.9025,
+              0.0,
+              0.0,
+              1.5689409433270685,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "attention_output": [
+              0.3559999496131257,
+              0.47878984482352416,
+              0.535189182000665,
+              1.4837229198255362,
+              1.298394768164438,
+              0.15549168213748846,
+              1.9827641165016079,
+              0.7267333808116747,
+              0.10312204628872752,
+              0.5917321877751004,
+              0.04966289274266042,
+              0.1286816609636937
+            ]
+          }
+        },
+        "metrics": {
+          "consciousness_index": 0.831731469836934,
+          "attention_focus": 0.7527777312670697,
+          "emergence_factor": 0.8317314798369341
+        },
+        "processing_time": 0.0003223419189453125
+      },
+      {
+        "architecture": "consciousness_attention",
+        "timestamp": 1755819624.6397078,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "consciousness": {
+            "global_workspace": [
+              0.8573749999999999,
+              0.0,
+              0.0,
+              1.490493896160715,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.9261815165727325,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "attention_output": [
+              0.0,
+              0.47410667005272705,
+              0.6737609237738019,
+              0.29985182004283123,
+              -0.29985182004283106,
+              -0.6737609237738019,
+              -0.4741066700527272,
+              -1.4852643541588892e-16,
+              0.587209190107144,
+              0.7322378831790615,
+              0.245651027288036,
+              -0.24565102728803564
+            ]
+          }
+        },
+        "metrics": {
+          "consciousness_index": 0.9075969298534499,
+          "attention_focus": 0.6520371448496227,
+          "emergence_factor": 0.9075969398534499
+        },
+        "processing_time": 0.0002486705780029297
+      },
+      {
+        "architecture": "consciousness_attention",
+        "timestamp": 1755819624.640014,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "consciousness": {
+            "global_workspace": [
+              0.8145062499999999,
+              0.0,
+              0.0,
+              1.4159692013526792,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.8798724407440959,
+              0.0,
+              0.0,
+              2.1951355269284734,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "attention_output": [
+              1.323656381514231,
+              0.3046461801285031,
+              0.3234140675194994,
+              0.9335745761149898,
+              0.08609841367415663,
+              0.48006061033147923,
+              2.336878092904409,
+              0.29831137517258505,
+              0.06801930581872573,
+              0.2373790274466286,
+              0.253452305400799,
+              0.19345371121752156
+            ]
+          }
+        },
+        "metrics": {
+          "consciousness_index": 0.9549994156865175,
+          "attention_focus": 0.7182410792102017,
+          "emergence_factor": 0.9549994256865175
+        },
+        "processing_time": 0.0003540515899658203
+      },
+      {
+        "architecture": "consciousness_attention",
+        "timestamp": 1755819624.6404653,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "consciousness": {
+            "global_workspace": [
+              0.7737809374999999,
+              0.0,
+              0.0,
+              1.345170741285045,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.8358788187068911,
+              0.0,
+              0.0,
+              2.08537875058205,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "attention_output": [
+              0.17767194118685126,
+              0.0877186865315072,
+              0.1823911302045569,
+              0.05294376373887576,
+              0.10407223115969554,
+              0.17376916162133793,
+              0.08290655498316468,
+              0.27772999104099894,
+              0.1375344936933242,
+              0.07783253675109454,
+              0.3927473169450549,
+              0.14752936244085435
+            ]
+          }
+        },
+        "metrics": {
+          "consciousness_index": 0.9527428900679084,
+          "attention_focus": 0.5381706633570387,
+          "emergence_factor": 0.9527429000679084
+        },
+        "processing_time": 0.0002665519714355469
+      },
+      {
+        "architecture": "consciousness_attention",
+        "timestamp": 1755819624.640789,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "consciousness": {
+            "global_workspace": [
+              0.7350918906249998,
+              0.0,
+              0.0,
+              1.2779122042207929,
+              0.0,
+              0.0,
+              0.0,
+              2.760964778092426,
+              0.0,
+              0.7940848777715465,
+              0.0,
+              0.0,
+              1.9811098130529472,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "attention_output": [
+              0.10045809845805603,
+              0.1998852965866425,
+              0.21379024792219098,
+              0.5233572665660126,
+              0.23946910508804378,
+              0.46519443624834406,
+              0.6725620742359566,
+              2.900917447519773,
+              0.3909547879420537,
+              1.6572476526176172,
+              0.5792164536006754,
+              3.736420540436433
+            ]
+          }
+        },
+        "metrics": {
+          "consciousness_index": 0.9741907628669426,
+          "attention_focus": 0.7844735042063876,
+          "emergence_factor": 0.9741907728669428
+        },
+        "processing_time": 0.00026106834411621094
+      }
+    ],
+    "multi_scale_temporal": [
+      {
+        "architecture": "multi_scale_temporal",
+        "timestamp": 1755819624.6412208,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "temporal": {
+            "scale_outputs": {
+              "0.005": [
+                1.457253046576257,
+                0.5319286101453206,
+                1.0367561107734653,
+                0.4609442699750093,
+                0.3590997784835582,
+                0.4421849417783181,
+                0.07339915043121933,
+                0.24430491257696843,
+                0.4032968641127793,
+                1.4181272662505717
+              ],
+              "0.05": [
+                1.457253046576257,
+                0.5319286101453206,
+                1.0367561107734653,
+                0.4609442699750093,
+                0.3590997784835582,
+                0.4421849417783181,
+                0.07339915043121933,
+                0.24430491257696843,
+                0.4032968641127793,
+                1.4181272662505717
+              ],
+              "0.5": [
+                1.457253046576257,
+                0.5319286101453206,
+                1.0367561107734653,
+                0.4609442699750093,
+                0.3590997784835582,
+                0.4421849417783181,
+                0.07339915043121933,
+                0.24430491257696843,
+                0.4032968641127793,
+                1.4181272662505717
+              ],
+              "5.0": [
+                1.457253046576257,
+                0.5319286101453206,
+                1.0367561107734653,
+                0.4609442699750093,
+                0.3590997784835582,
+                0.4421849417783181,
+                0.07339915043121933,
+                0.24430491257696843,
+                0.4032968641127793,
+                1.4181272662505717
+              ]
+            },
+            "integrated": [
+              3.096808034830923,
+              1.1304013381373113,
+              2.20321011614733,
+              0.9795525370295978,
+              0.7631228371260735,
+              0.9396870940140329,
+              0.15598051370638807,
+              0.519172300236074,
+              0.8570460512269129,
+              3.013661850188329
+            ]
+          }
+        },
+        "metrics": {
+          "temporal_resolution": 0.0,
+          "emergence_factor": 1.0000000000000018e-08
+        },
+        "processing_time": 0.00014138221740722656
+      },
+      {
+        "architecture": "multi_scale_temporal",
+        "timestamp": 1755819624.6414273,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "temporal": {
+            "scale_outputs": {
+              "0.005": [
+                0.16371518290512468,
+                -0.3547537006172587,
+                0.3946476145959266,
+                0.6350303692613555,
+                0.732063605806242,
+                0.8239792253151493,
+                0.4942310317642566,
+                1.0284839059399882,
+                0.028120490256726405,
+                0.5555461025747735
+              ],
+              "0.05": [
+                0.1872622494417841,
+                -0.33861287632847414,
+                0.4063363110831993,
+                0.6318613727610372,
+                0.7252743155161148,
+                0.8170291887910978,
+                0.48657036980081525,
+                1.0142090126786771,
+                0.034950056894303486,
+                0.5712481988371114
+              ],
+              "0.5": [
+                0.18961732378673454,
+                -0.3369985418579919,
+                0.4075053632528285,
+                0.631544423626608,
+                0.7245952804712269,
+                0.8163340766127387,
+                0.4858041839819851,
+                1.0127813004477595,
+                0.035633120202858144,
+                0.5728186536541395
+              ],
+              "5.0": [
+                0.18985283158898356,
+                -0.336837108158859,
+                0.4076222686523435,
+                0.6315127286636724,
+                0.7245273768607039,
+                0.8162645652863583,
+                0.4857275652804592,
+                1.0126385290017248,
+                0.0357014266403766,
+                0.5729756993810748
+              ]
+            },
+            "integrated": [
+              0.3840381688873282,
+              -0.7291229331317177,
+              0.8565989128593204,
+              1.3446408251167954,
+              1.5452916937658951,
+              1.7403749257786245,
+              1.0385368565633595,
+              2.1637296050093524,
+              0.07023710655311058,
+              1.204681801386928
+            ]
+          }
+        },
+        "metrics": {
+          "temporal_resolution": 1.0,
+          "emergence_factor": 1.0
+        },
+        "processing_time": 0.0003070831298828125
+      },
+      {
+        "architecture": "multi_scale_temporal",
+        "timestamp": 1755819624.6417985,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "temporal": {
+            "scale_outputs": {
+              "0.005": [
+                -0.22399055445531718,
+                -0.9531696423285326,
+                0.4623773102024963,
+                0.2052089398993437,
+                0.07931265210079551,
+                0.5058812067288674,
+                0.3157117990631214,
+                0.7494603873391545,
+                -0.06994230453380443,
+                0.7059130269806314
+              ],
+              "0.05": [
+                -0.18730168441142514,
+                -0.9099675186388706,
+                0.4664694456140026,
+                0.2264291050544696,
+                0.11022517719465486,
+                0.5185255032256283,
+                0.3203089930379205,
+                0.7551163641726423,
+                -0.06008187487138666,
+                0.7081876175102993
+              ],
+              "0.5": [
+                -0.18360985021096032,
+                -0.905654337562781,
+                0.4669078525061895,
+                0.22851505393911667,
+                0.11325750217960426,
+                0.5197535652316733,
+                0.3207404019554017,
+                0.7556328774932347,
+                -0.0590881919387442,
+                0.7084583566835604
+              ],
+              "5.0": [
+                -0.18324045816042894,
+                -0.9052231144197759,
+                0.46695198289059664,
+                0.22872327593715658,
+                0.11356012758923126,
+                0.519876000429732,
+                0.32078325702987043,
+                0.7556840345983121,
+                -0.058988752842361124,
+                0.7084858622455446
+              ]
+            },
+            "integrated": [
+              -0.41969254926609306,
+              -1.9593045233232869,
+              0.9889020637501946,
+              0.46861423136470554,
+              0.21592217169409544,
+              1.0944151096458867,
+              0.6779471435745947,
+              1.6013121567400526,
+              -0.13349937649622662,
+              1.503663688296157
+            ]
+          }
+        },
+        "metrics": {
+          "temporal_resolution": 0.9999999932145869,
+          "emergence_factor": 1.0
+        },
+        "processing_time": 0.00031113624572753906
+      },
+      {
+        "architecture": "multi_scale_temporal",
+        "timestamp": 1755819624.6421812,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "temporal": {
+            "scale_outputs": {
+              "0.005": [
+                -0.06880414784716186,
+                -0.5907538643366407,
+                0.44531114336041594,
+                0.22496296049565057,
+                0.09028021762074473,
+                0.4784404064147433,
+                0.24757022587926666,
+                0.5859919053410738,
+                0.05451641607523445,
+                0.5404534476332147
+              ],
+              "0.05": [
+                -0.054979052833573364,
+                -0.590215315951573,
+                0.44986457521848583,
+                0.23909176072036925,
+                0.11242255436103529,
+                0.49029435488789735,
+                0.25697559520961455,
+                0.604539711591978,
+                0.05098259367217892,
+                0.5566485312657612
+              ],
+              "0.5": [
+                -0.0534503787898789,
+                -0.5899761182442044,
+                0.45034877410126595,
+                0.24053708663181547,
+                0.11467542410759786,
+                0.49147947099789224,
+                0.25789217148759963,
+                0.6063371481908668,
+                0.050687449545422716,
+                0.5582707151172961
+              ],
+              "5.0": [
+                -0.053296070511916406,
+                -0.5899503620590131,
+                0.4503974841239849,
+                0.24068191221681207,
+                0.11490104828789445,
+                0.4915979535508244,
+                0.2579835706446757,
+                0.6065162841444175,
+                0.05065851989525928,
+                0.5584329540087245
+              ]
+            },
+            "integrated": [
+              -0.12487518353385417,
+              -1.2544203517666623,
+              0.9533421966605569,
+              0.499774384125236,
+              0.22586026304576684,
+              1.034920071950798,
+              0.5405202324013367,
+              1.2736971125024752,
+              0.110482717407181,
+              1.1733669165170268
+            ]
+          }
+        },
+        "metrics": {
+          "temporal_resolution": 0.999999993520444,
+          "emergence_factor": 1.0
+        },
+        "processing_time": 0.0002949237823486328
+      },
+      {
+        "architecture": "multi_scale_temporal",
+        "timestamp": 1755819624.6425362,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "temporal": {
+            "scale_outputs": {
+              "0.005": [
+                0.022743795915332467,
+                -0.30004410083805033,
+                0.4316062890991106,
+                0.24938959833079827,
+                0.16490022846031643,
+                0.4217610888403365,
+                0.31009363433799497,
+                0.5176858503140942,
+                0.1423374503105464,
+                0.4771037966574577
+              ],
+              "0.05": [
+                0.02324958053103266,
+                -0.33300587197612,
+                0.4368103229339894,
+                0.25784708086248653,
+                0.1739806703543784,
+                0.4377209904357185,
+                0.3104098944851166,
+                0.5403173881789267,
+                0.12943319799986197,
+                0.4972905051888903
+              ],
+              "0.5": [
+                0.023491428116221215,
+                -0.33603891678282616,
+                0.4373611917363694,
+                0.25876782115758223,
+                0.17501064955835696,
+                0.4393278008869015,
+                0.31047305386687746,
+                0.5425599121285302,
+                0.12821372178575352,
+                0.4993318982287396
+              ],
+              "5.0": [
+                0.023517552089737843,
+                -0.33633949995500534,
+                0.4374165854680867,
+                0.2588606187703976,
+                0.17511482874992845,
+                0.43948854659353864,
+                0.3104796647423788,
+                0.5427838832139136,
+                0.12809252132311597,
+                0.49953623236202555
+              ]
+            },
+            "integrated": [
+              0.04927834646955102,
+              -0.6879615433165018,
+              0.9252176184536751,
+              0.5430199938742234,
+              0.36446902532709297,
+              0.9207802035976004,
+              0.6594930536817407,
+              1.134837870772853,
+              0.28274599546874746,
+              1.0448844459401534
+            ]
+          }
+        },
+        "metrics": {
+          "temporal_resolution": 0.9999999949121054,
+          "emergence_factor": 1.0
+        },
+        "processing_time": 0.00030612945556640625
+      },
+      {
+        "architecture": "multi_scale_temporal",
+        "timestamp": 1755819624.6429036,
+        "input_shape": [
+          15
+        ],
+        "outputs": {
+          "temporal": {
+            "scale_outputs": {
+              "0.005": [
+                -0.004499811878323107,
+                -0.3386909317021081,
+                0.40411150080641745,
+                0.22396988888958777,
+                0.18171686757284053,
+                0.4454514732423793,
+                0.43149347175754227,
+                0.5169236599835358,
+                0.21689481470243868,
+                0.7060073608587003
+              ],
+              "0.05": [
+                -0.0002001583865289658,
+                -0.36055697043297014,
+                0.4123480880226251,
+                0.23461245270751296,
+                0.1868619539071989,
+                0.4553300100130664,
+                0.41446790001523365,
+                0.5358241668544911,
+                0.19556235956239348,
+                0.6901718259921922
+              ],
+              "0.5": [
+                0.00037333631570431587,
+                -0.3626465106249673,
+                0.4131950715602715,
+                0.2357480766001201,
+                0.18751560353383806,
+                0.45638917577812854,
+                0.41286964748739324,
+                0.5377635538276774,
+                0.19349736184883487,
+                0.688812342616883
+              ],
+              "5.0": [
+                0.00043219140422838916,
+                -0.36285430393736606,
+                0.4132799984834027,
+                0.23586233330349707,
+                0.1875823560647333,
+                0.45649575600913417,
+                0.41271089242561293,
+                0.5379578840224793,
+                0.19329163749136233,
+                0.6886786517264375
+              ]
+            },
+            "integrated": [
+              -0.0028386462611429686,
+              -0.7532135973364807,
+              0.8714347739944772,
+              0.49234979611497165,
+              0.3941835533066156,
+              0.9618479941975867,
+              0.8909378572664126,
+              1.127555860150189,
+              0.4282545967102314,
+              1.4762391825349908
+            ]
+          }
+        },
+        "metrics": {
+          "temporal_resolution": 0.9999999956917327,
+          "emergence_factor": 1.0
+        },
+        "processing_time": 0.0004875659942626953
+      }
+    ]
+  },
+  "comparative_analysis": {
+    "performance_ranking": {
+      "consciousness_attention": 0.8514068359152067,
+      "multi_scale_temporal": 0.833333335,
+      "quantum_inspired": 0.7762910830915747,
+      "adaptive_topology": 0.003090212776808708,
+      "neuromorphic_spiking": 1.0000000000000018e-08
+    },
+    "metric_comparisons": {
+      "emergence_factor": {
+        "quantum_inspired": {
+          "mean": 0.7762910830915747,
+          "std": 0.06422720755832523,
+          "max": 0.8327515069645759,
+          "min": 0.653116092148446
+        },
+        "neuromorphic_spiking": {
+          "mean": 1.0000000000000018e-08,
+          "std": 0.0,
+          "max": 1.0000000000000018e-08,
+          "min": 1.0000000000000018e-08
+        },
+        "adaptive_topology": {
+          "mean": 0.003090212776808708,
+          "std": 1.7409656274950966e-06,
+          "max": 0.0030936421519865975,
+          "min": 0.0030887959462957805
+        },
+        "consciousness_attention": {
+          "mean": 0.8514068359152067,
+          "std": 0.1694512316404327,
+          "max": 0.9741907728669428,
+          "min": 0.4871794971794872
+        },
+        "multi_scale_temporal": {
+          "mean": 0.833333335,
+          "std": 0.37267799252318495,
+          "max": 1.0,
+          "min": 1.0000000000000018e-08
+        }
+      },
+      "attention_focus": {
+        "quantum_inspired": {
+          "mean": 0.0,
+          "std": 0.0,
+          "max": 
