@@ -96,6 +96,9 @@ void assert_equal(float expected, float actual, float tolerance,
 #define ASSERT_GE(actual, expected, message) \
     SimpleTest::assert_true((actual) >= (expected), message, __FILE__, __LINE__)
 
+#define ASSERT_LE(actual, expected, message) \
+    SimpleTest::assert_true((actual) <= (expected), message, __FILE__, __LINE__)
+
 #define RUN_TEST(test_func) \
     do { \
         try { \
@@ -116,6 +119,6 @@ void assert_equal(float expected, float actual, float tolerance,
     void class_name::run()
 
 #define TEST_MAIN() \
-    int main() { \
-        return SimpleTest::run_all_tests(); \
-    }
+int main() { \
+    return SimpleTest::run_all_tests(); \
+}

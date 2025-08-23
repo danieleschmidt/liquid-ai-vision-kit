@@ -11,7 +11,7 @@ void test_fixed_point_construction() {
     
     ASSERT_FLOAT_NEAR(fp1.to_float(), 3.14159f, 0.001f);
     ASSERT_FLOAT_NEAR(fp2.to_float(), 42.0f, 0.001f);
-    ASSERT_FLOAT_EQ(fp3.to_float(), 0.0f);
+    ASSERT_FLOAT_EQ(fp3.to_float(), 0.0f, 0.01f, "Default construction should be zero");
 }
 
 void test_fixed_point_arithmetic() {
@@ -57,8 +57,8 @@ void test_fixed_point_overflow() {
     FixedPoint<8, 8> max_val(255.0f);
     FixedPoint<8, 8> min_val(-128.0f);
     
-    ASSERT_GE(max_val.to_float(), 254.0f);
-    ASSERT_LE(min_val.to_float(), -127.0f);
+    ASSERT_GE(max_val.to_float(), 254.0f, "Max value should be >= 254");
+    ASSERT_LE(min_val.to_float(), -127.0f, "Min value should be <= -127");
 }
 
 void test_fixed_point_comparison() {
@@ -66,12 +66,12 @@ void test_fixed_point_comparison() {
     FixedPoint<16, 16> b(3.5f);
     FixedPoint<16, 16> c(4.0f);
     
-    ASSERT_TRUE(a == b);
-    ASSERT_FALSE(a == c);
-    ASSERT_TRUE(a < c);
-    ASSERT_TRUE(c > a);
-    ASSERT_TRUE(a <= b);
-    ASSERT_TRUE(a >= b);
+    ASSERT_TRUE(a == b, "Equal values should be equal");
+    ASSERT_FALSE(a == c, "Unequal values should not be equal");
+    ASSERT_TRUE(a < c, "Smaller value should be less than larger");
+    ASSERT_TRUE(c > a, "Larger value should be greater than smaller");
+    ASSERT_TRUE(a <= b, "Equal values should be less than or equal");
+    ASSERT_TRUE(a >= b, "Equal values should be greater than or equal");
 }
 
 void test_fixed_point_saturation() {
@@ -80,8 +80,8 @@ void test_fixed_point_saturation() {
     FixedPoint<4, 4> large(20.0f);  // Should saturate
     
     // Values should be clamped to representable range
-    ASSERT_GE(tiny.to_float(), -8.0f);   // Approximately minimum value
-    ASSERT_LE(large.to_float(), 7.9f);   // Approximately maximum value
+    ASSERT_GE(tiny.to_float(), -8.0f, "Saturated tiny value should be >= -8");   // Approximately minimum value
+    ASSERT_LE(large.to_float(), 7.9f, "Saturated large value should be <= 7.9");   // Approximately maximum value
 }
 
 void test_fixed_point_performance() {
@@ -97,7 +97,7 @@ void test_fixed_point_performance() {
     }
     
     // Just verify the result is reasonable
-    ASSERT_TRUE(std::isfinite(result.to_float()));
+    ASSERT_TRUE(std::isfinite(result.to_float()), "Performance test result should be finite");
 }
 
 int main() {
