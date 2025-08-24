@@ -167,7 +167,7 @@ if(ENABLE_TESTS AND NOT EMBEDDED_BUILD)
         tests/test_liquid_neuron.cpp
         tests/test_ode_solver.cpp
         tests/test_fixed_point.cpp
-        tests/test_image_processor.cpp
+        tests/test_image_processor_fixed.cpp
     )
     
     foreach(test_source ${TEST_SOURCES})

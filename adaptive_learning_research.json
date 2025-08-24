@@ -1,49 +1,49 @@
 {
-  "timestamp": 1755721515.3836796,
+  "timestamp": 1756044880.5889559,
   "research_results": {
     "individual_results": {
       "meta_learning": {
-        "adaptation_time_mean": 0.11776924133300781,
-        "adaptation_time_std": 0.05363705820912857,
-        "learning_efficiency_mean": 395.5193870625892,
-        "learning_efficiency_std": 307.15501528973806,
-        "retention_score_mean": 0.9769445167161267,
-        "retention_score_std": 0.014920038000584626,
-        "plasticity_index_mean": 0.9614784904674409,
-        "plasticity_index_std": 0.02681099100933624,
-        "stability_measure_mean": 0.967967826441462,
-        "stability_measure_std": 0.022293065454402298,
-        "energy_per_update_mean": 12.306017842314413,
-        "energy_per_update_std": 1.3971440080919144,
-        "memory_growth_mean": 0.00872,
-        "memory_growth_std": 0.003831657604744975,
-        "theoretical_bound_mean": 0.9118767264359087,
-        "theoretical_bound_std": 0.0387630995773762
+        "adaptation_time_mean": 0.13319969177246094,
+        "adaptation_time_std": 0.07329738543675923,
+        "learning_efficiency_mean": 366.90614301098316,
+        "learning_efficiency_std": 295.63155836993997,
+        "retention_score_mean": 0.9778816596404037,
+        "retention_score_std": 0.015581592015903986,
+        "plasticity_index_mean": 0.9504146750053549,
+        "plasticity_index_std": 0.03172946045156922,
+        "stability_measure_mean": 0.9633995922598118,
+        "stability_measure_std": 0.02210624362570387,
+        "energy_per_update_mean": 12.689045364114609,
+        "energy_per_update_std": 1.4627724821166488,
+        "memory_growth_mean": 0.008320000000000001,
+        "memory_growth_std": 0.0041252393869931955,
+        "theoretical_bound_mean": 0.9209673146894177,
+        "theoretical_bound_std": 0.04440704081550329
       },
       "continual_learning": {
         "final_task_count": 5,
         "avg_retention": 0.8500000000000001,
-        "total_learning_time": 0.0021708011627197266
+        "total_learning_time": 0.003444671630859375
       },
       "stdp": {
         "avg_weight_change": 0.0,
-        "final_synaptic_strength": 0.0790315617825694,
-        "learning_stability": 0.0
+        "final_synaptic_strength": 0.08467594866790937,
+        "learning_stability": 1.3877787807814457e-17
       },
       "evolutionary_nas": {
         "final_generation": 10,
-        "best_fitness": 0.9998474125533023,
-        "avg_diversity": 2.207812362150169,
-        "total_evolution_time": 0.022706270217895508
+        "best_fitness": 0.9999124610088881,
+        "avg_diversity": 1.983230757813343,
+        "total_evolution_time": 0.01906108856201172
       }
     },
     "comparative_analysis": {
       "key_performance_indicators": {
-        "meta_learning_adaptation_speed": 0.11776924133300781,
-        "meta_learning_efficiency": 395.5193870625892,
+        "meta_learning_adaptation_speed": 0.13319969177246094,
+        "meta_learning_efficiency": 366.90614301098316,
         "continual_retention": 0.8500000000000001,
-        "stdp_stability": 0.0,
-        "evolution_best_fitness": 0.9998474125533023
+        "stdp_stability": 1.3877787807814457e-17,
+        "evolution_best_fitness": 0.9999124610088881
       },
       "best_methods_by_criterion": {
         "fastest_adaptation": "meta_learning",
