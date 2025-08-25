@@ -80,11 +80,11 @@ void ImageProcessor::normalize(ProcessedFrame& frame) {
         max_val = std::max(max_val, val);
     }
     
-    // Normalize to [-1, 1]
+    // Normalize to [0, 1] for stability
     float range = max_val - min_val;
     if (range > 0.001f) {
         for (float& val : frame.data) {
-            val = 2.0f * (val - min_val) / range - 1.0f;
+            val = (val - min_val) / range;
         }
     }
 }

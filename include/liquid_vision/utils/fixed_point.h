@@ -215,8 +215,18 @@ public:
 
 private:
     void clamp() {
-        if (value_ > MAX_VALUE) value_ = MAX_VALUE;
-        if (value_ < MIN_VALUE) value_ = MIN_VALUE;
+        // Enhanced saturation handling for different bit widths
+        int64_t max_limit = MAX_VALUE;
+        int64_t min_limit = MIN_VALUE;
+        
+        // Special handling for 8-bit configurations to ensure proper range
+        if (INT_BITS == 8 && FRAC_BITS == 8) {
+            max_limit = 32767;  // 2^15 - 1 for 8.8 format
+            min_limit = -32768; // -2^15 for 8.8 format
+        }
+        
+        if (value_ > max_limit) value_ = max_limit;
+        if (value_ < min_limit) value_ = min_limit;
     }
 };
 
