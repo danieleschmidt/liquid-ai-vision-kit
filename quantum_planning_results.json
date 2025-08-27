@@ -1,25 +1,25 @@
 {
-  "timestamp": 1756211169.0413992,
-  "planning_duration": 0.0066852569580078125,
+  "timestamp": 1756335230.0286891,
+  "planning_duration": 0.003181934356689453,
   "final_schedule": {
     "chosen_schedule": {
-      "state_index": 2,
+      "state_index": 0,
       "schedule": [
-        "task_3",
         "task_1",
-        "task_4",
+        "task_3",
         "task_0",
-        "task_2"
+        "task_2",
+        "task_4"
       ],
-      "amplitude": "(-9.696443535238614e-05-5.286532339667401e-05j)",
-      "probability": 0.21086571532664214
+      "amplitude": "(-0.0003251745502640104-0.00023817744874731294j)",
+      "probability": 0.3651773197560372
     },
     "measurement_basis": "computational",
-    "collapse_probability": 0.21086571532664214,
-    "measurement_time": 1756211169.0480225
+    "collapse_probability": 0.3651773197560372,
+    "measurement_time": 1756335230.031847
   },
   "task_assignments": {
-    "task_3": "resource_1"
+    "task_1": "resource_4"
   },
   "resource_allocations": {
     "task_0": {},
@@ -33,141 +33,240 @@
       {
         "pair_id": "resource_0_resource_2",
         "bell_state": {
-          "amplitude": "(0.4476582520422552+0j)",
-          "state_vector": "[0.44765825+0.j 0.        +0.j 0.        +0.j 0.44765825+0.j]",
+          "amplitude": "(0.4547312556107615+0j)",
+          "state_vector": "[0.45473126+0.j 0.        +0.j 0.        +0.j 0.45473126+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.7031840418224355
+          "decoherence_rate": 0.6610313457002239
         },
-        "entanglement_strength": 0.4476582520422552,
-        "creation_time": 1756211169.0414586
+        "entanglement_strength": 0.4547312556107615,
+        "creation_time": 1756335230.028715
+      },
+      {
+        "pair_id": "resource_0_resource_3",
+        "bell_state": {
+          "amplitude": "(0.4814803249632696+0j)",
+          "state_vector": "[0.48148032+0.j 0.        +0.j 0.        +0.j 0.48148032+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.593966324443443
+        },
+        "entanglement_strength": 0.4814803249632696,
+        "creation_time": 1756335230.0287266
       },
       {
         "pair_id": "resource_0_resource_4",
         "bell_state": {
-          "amplitude": "(0.526813926219537+0j)",
-          "state_vector": "[0.52681393+0.j 0.        +0.j 0.        +0.j 0.52681393+0.j]",
+          "amplitude": "(0.562264333142917+0j)",
+          "state_vector": "[0.56226433+0.j 0.        +0.j 0.        +0.j 0.56226433+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.6119389221151424
+          "decoherence_rate": 0.5880567681074987
         },
-        "entanglement_strength": 0.526813926219537,
-        "creation_time": 1756211169.0414772
+        "entanglement_strength": 0.562264333142917,
+        "creation_time": 1756335230.0287337
       },
       {
-        "pair_id": "resource_0_resource_5",
+        "pair_id": "resource_0_resource_6",
         "bell_state": {
-          "amplitude": "(0.5370765986201437+0j)",
-          "state_vector": "[0.5370766+0.j 0.       +0.j 0.       +0.j 0.5370766+0.j]",
+          "amplitude": "(0.5069199235795934+0j)",
+          "state_vector": "[0.50691992+0.j 0.        +0.j 0.        +0.j 0.50691992+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.590974015087291
+          "decoherence_rate": 0.5992658485744364
         },
-        "entanglement_strength": 0.5370765986201437,
-        "creation_time": 1756211169.0414891
+        "entanglement_strength": 0.5069199235795934,
+        "creation_time": 1756335230.0287397
+      },
+      {
+        "pair_id": "resource_1_resource_2",
+        "bell_state": {
+          "amplitude": "(0.45878514922064745+0j)",
+          "state_vector": "[0.45878515+0.j 0.        +0.j 0.        +0.j 0.45878515+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.5670914406580052
+        },
+        "entanglement_strength": 0.45878514922064745,
+        "creation_time": 1756335230.0287461
+      },
+      {
+        "pair_id": "resource_1_resource_3",
+        "bell_state": {
+          "amplitude": "(0.4857726844361915+0j)",
+          "state_vector": "[0.48577268+0.j 0.        +0.j 0.        +0.j 0.48577268+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.5170113234013234
+        },
+        "entanglement_strength": 0.4857726844361915,
+        "creation_time": 1756335230.0287511
+      },
+      {
+        "pair_id": "resource_1_resource_5",
+        "bell_state": {
+          "amplitude": "(0.4143071040957228+0j)",
+          "state_vector": "[0.4143071+0.j 0.       +0.j 0.       +0.j 0.4143071+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.5895677220828099
+        },
+        "entanglement_strength": 0.4143071040957228,
+        "creation_time": 1756335230.0287554
+      },
+      {
+        "pair_id": "resource_1_resource_6",
+        "bell_state": {
+          "amplitude": "(0.5114390750862632+0j)",
+          "state_vector": "[0.51143908+0.j 0.        +0.j 0.        +0.j 0.51143908+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.5210219441166801
+        },
+        "entanglement_strength": 0.5114390750862632,
+        "creation_time": 1756335230.028759
+      },
+      {
+        "pair_id": "resource_1_resource_7",
+        "bell_state": {
+          "amplitude": "(0.39796658703859983+0j)",
+          "state_vector": "[0.39796659+0.j 0.        +0.j 0.        +0.j 0.39796659+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.5800148661241723
+        },
+        "entanglement_strength": 0.39796658703859983,
+        "creation_time": 1756335230.0287662
+      },
+      {
+        "pair_id": "resource_2_resource_3",
+        "bell_state": {
+          "amplitude": "(0.4566567648494528+0j)",
+          "state_vector": "[0.45665676+0.j 0.        +0.j 0.        +0.j 0.45665676+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.5828985505677002
+        },
+        "entanglement_strength": 0.4566567648494528,
+        "creation_time": 1756335230.0287702
       },
       {
         "pair_id": "resource_2_resource_4",
         "bell_state": {
-          "amplitude": "(0.5331605580930653+0j)",
-          "state_vector": "[0.53316056+0.j 0.        +0.j 0.        +0.j 0.53316056+0.j]",
+          "amplitude": "(0.5332758122211261+0j)",
+          "state_vector": "[0.53327581+0.j 0.        +0.j 0.        +0.j 0.53327581+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.6098096155334087
+          "decoherence_rate": 0.5772061204932885
         },
-        "entanglement_strength": 0.5331605580930653,
-        "creation_time": 1756211169.0415106
+        "entanglement_strength": 0.5332758122211261,
+        "creation_time": 1756335230.028775
       },
       {
         "pair_id": "resource_2_resource_5",
         "bell_state": {
-          "amplitude": "(0.543546866943894+0j)",
-          "state_vector": "[0.54354687+0.j 0.        +0.j 0.        +0.j 0.54354687+0.j]",
+          "amplitude": "(0.3894746408602356+0j)",
+          "state_vector": "[0.38947464+0.j 0.        +0.j 0.        +0.j 0.38947464+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.5889878717451711
+          "decoherence_rate": 0.676805772897469
         },
-        "entanglement_strength": 0.543546866943894,
-        "creation_time": 1756211169.0415199
+        "entanglement_strength": 0.3894746408602356,
+        "creation_time": 1756335230.0287795
       },
       {
-        "pair_id": "resource_3_resource_4",
+        "pair_id": "resource_2_resource_6",
         "bell_state": {
-          "amplitude": "(0.5850527282509224+0j)",
-          "state_vector": "[0.58505273+0.j 0.        +0.j 0.        +0.j 0.58505273+0.j]",
+          "amplitude": "(0.4807847804731133+0j)",
+          "state_vector": "[0.48078478+0.j 0.        +0.j 0.        +0.j 0.48078478+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.5688135167214862
+          "decoherence_rate": 0.5880015671741315
         },
-        "entanglement_strength": 0.5850527282509224,
-        "creation_time": 1756211169.0415308
+        "entanglement_strength": 0.4807847804731133,
+        "creation_time": 1756335230.0287833
       },
       {
         "pair_id": "resource_3_resource_5",
         "bell_state": {
-          "amplitude": "(0.5964499297831732+0j)",
-          "state_vector": "[0.59644993+0.j 0.        +0.j 0.        +0.j 0.59644993+0.j]",
+          "amplitude": "(0.41238506113785833+0j)",
+          "state_vector": "[0.41238506+0.j 0.        +0.j 0.        +0.j 0.41238506+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.550655582743373
+          "decoherence_rate": 0.6066715667974321
         },
-        "entanglement_strength": 0.5964499297831732,
-        "creation_time": 1756211169.0415394
+        "entanglement_strength": 0.41238506113785833,
+        "creation_time": 1756335230.0287883
       },
       {
         "pair_id": "resource_3_resource_6",
         "bell_state": {
-          "amplitude": "(0.5901240343753441+0j)",
-          "state_vector": "[0.59012403+0.j 0.        +0.j 0.        +0.j 0.59012403+0.j]",
+          "amplitude": "(0.5090664199641847+0j)",
+          "state_vector": "[0.50906642+0.j 0.        +0.j 0.        +0.j 0.50906642+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.5514796407051932
+          "decoherence_rate": 0.5343349461654652
         },
-        "entanglement_strength": 0.5901240343753441,
-        "creation_time": 1756211169.041547
+        "entanglement_strength": 0.5090664199641847,
+        "creation_time": 1756335230.0287921
       },
       {
-        "pair_id": "resource_4_resource_5",
+        "pair_id": "resource_3_resource_7",
         "bell_state": {
-          "amplitude": "(0.6396577249558044+0j)",
-          "state_vector": "[0.63965772+0.j 0.        +0.j 0.        +0.j 0.63965772+0.j]",
+          "amplitude": "(0.3961203505909956+0j)",
+          "state_vector": "[0.39612035+0.j 0.        +0.j 0.        +0.j 0.39612035+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.5235944652983401
+          "decoherence_rate": 0.5965611510371154
         },
-        "entanglement_strength": 0.6396577249558044,
-        "creation_time": 1756211169.0415561
+        "entanglement_strength": 0.3961203505909956,
+        "creation_time": 1756335230.0287957
       },
       {
         "pair_id": "resource_4_resource_6",
         "bell_state": {
-          "amplitude": "(0.6328735714789964+0j)",
-          "state_vector": "[0.63287357+0.j 0.        +0.j 0.        +0.j 0.63287357+0.j]",
+          "amplitude": "(0.5944788941655089+0j)",
+          "state_vector": "[0.59447889+0.j 0.        +0.j 0.        +0.j 0.59447889+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.5243394645260684
+          "decoherence_rate": 0.5295476267395843
         },
-        "entanglement_strength": 0.6328735714789964,
-        "creation_time": 1756211169.0415642
+        "entanglement_strength": 0.5944788941655089,
+        "creation_time": 1756335230.0288002
       },
       {
         "pair_id": "resource_5_resource_6",
         "bell_state": {
-          "amplitude": "(0.645202353638761+0j)",
-          "state_vector": "[0.64520235+0.j 0.        +0.j 0.        +0.j 0.64520235+0.j]",
+          "amplitude": "(0.4341739274461869+0j)",
+          "state_vector": "[0.43417393+0.j 0.        +0.j 0.        +0.j 0.43417393+0.j]",
           "entanglement_type": "bell_phi_plus",
-          "decoherence_rate": 0.508871362247563
+          "decoherence_rate": 0.6122012901472258
         },
-        "entanglement_strength": 0.645202353638761,
-        "creation_time": 1756211169.0416021
+        "entanglement_strength": 0.4341739274461869,
+        "creation_time": 1756335230.0288048
+      },
+      {
+        "pair_id": "resource_5_resource_7",
+        "bell_state": {
+          "amplitude": "(0.33784418223765966+0j)",
+          "state_vector": "[0.33784418+0.j 0.        +0.j 0.        +0.j 0.33784418+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.6952949925197963
+        },
+        "entanglement_strength": 0.33784418223765966,
+        "creation_time": 1756335230.0288084
+      },
+      {
+        "pair_id": "resource_6_resource_7",
+        "bell_state": {
+          "amplitude": "(0.41704985113405735+0j)",
+          "state_vector": "[0.41704985+0.j 0.        +0.j 0.        +0.j 0.41704985+0.j]",
+          "entanglement_type": "bell_phi_plus",
+          "decoherence_rate": 0.601907288146289
+        },
+        "entanglement_strength": 0.41704985113405735,
+        "creation_time": 1756335230.0288122
       }
     ],
-    "total_entanglement_strength": 6.277616544401897,
-    "entanglement_creation_time": 1756211169.0414016
+    "total_entanglement_strength": 9.234977122254348,
+    "entanglement_creation_time": 1756335230.02869
   },
   "quantum_metrics": {
-    "average_coherence_time": 1.2086807273245195,
-    "entanglement_utilization": 0.39285714285714285,
-    "optimization_energy": 0.016892187952893493,
-    "convergence_efficiency": 0.1,
+    "average_coherence_time": 1.4383118090309643,
+    "entanglement_utilization": 0.7142857142857143,
+    "optimization_energy": 0.015322717903444433,
+    "convergence_efficiency": 0.22,
     "quantum_advantage": false,
-    "performance_ratio": 0.3088514928017386,
+    "performance_ratio": 0.3067278380727309,
     "superposition_states": 0,
     "superposition_efficiency": 0.0
   },
   "superposition_analysis": {
     "num_states": 8,
-    "collapse_probability": 0.21086571532664214,
+    "collapse_probability": 0.3651773197560372,
     "quantum_advantage": false
   }
 }
